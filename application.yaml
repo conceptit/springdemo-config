@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: springweb-argo-application
+  namespace: springweb
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/conceptit/springdemo-config.git
+    targetRevision: HEAD
+    path: helm
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: springweb
+  helm:
+    valueFiles:
+      - values/development.yaml
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
+
