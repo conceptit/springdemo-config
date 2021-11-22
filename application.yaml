@@ -10,12 +10,12 @@ spec:
     repoURL: https://github.com/conceptit/springdemo-config.git
     targetRevision: HEAD
     path: helm
+    helm:
+      valueFiles:
+      - values/development.yaml
   destination: 
     server: https://kubernetes.default.svc
     namespace: springweb
-  helm:
-    valueFiles:
-      - values/development.yaml
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
