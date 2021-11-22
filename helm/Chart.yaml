@@ -1,6 +1,6 @@
 apiVersion: v3
 name: springboot
-description: A Helm chart for Kubernetes - Simple App
+description: A Helm chart for Kubernetes - POC App
 type: application
 version: 0.1.0
 appVersion: "latest"
